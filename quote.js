@@ -1,4 +1,3 @@
-
 var quotes = [
   { text: "In three words I can sum up everything I've learned about life: it goes on.", author: "Robert Frost" },
   { text: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" },
@@ -10,9 +9,21 @@ var quotes = [
   { text: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.", author: "Albert Einstein" }
 ];
 
+var index = [];
 
 function newQuote() {
-  var randomIndex = Math.floor(Math.random() * quotes.length);
+  if (index.length == quotes.length) {
+    index = [];
+  }
+
+  var randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * quotes.length);
+  } while (index.indexOf(randomIndex) != -1);
+
+  index.push(randomIndex);
+
+  
   var quote = quotes[randomIndex];
 
   document.getElementById("quoteText").innerHTML = '"' + quote.text + '"';
