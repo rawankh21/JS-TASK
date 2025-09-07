@@ -13,7 +13,8 @@ var index = [];
 
 function newQuote() {
   if (index.length == quotes.length) {
-    index = [];
+    alert("All quotes have been shown!");
+    return; 
   }
 
   var randomIndex;
@@ -23,7 +24,6 @@ function newQuote() {
 
   index.push(randomIndex);
 
-  
   var quote = quotes[randomIndex];
 
   document.getElementById("quoteText").innerHTML = '"' + quote.text + '"';
@@ -31,3 +31,4 @@ function newQuote() {
 }
 
 newQuote();
+
